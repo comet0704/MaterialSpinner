@@ -56,6 +56,7 @@ You can add attributes to customize the view. Available attributes:
 | ms_popup_padding_left   | dimension | set the left padding of the drop-down items            |
 | ms_popup_padding_bottom | dimension | set the bottom padding of the drop-down items          |
 | ms_popup_padding_right  | dimension | set the right padding of the drop-down items           |
+| ms_drwable_start        | dimension | set the drawable start when using setItemsWithIcon()   |
 
 Download
 --------

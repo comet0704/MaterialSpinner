@@ -39,6 +39,7 @@ public abstract class MaterialSpinnerBaseAdapter<T> extends BaseAdapter {
   private int popupPaddingLeft;
   private int popupPaddingBottom;
   private int popupPaddingRight;
+  private int popupDrwablePadding;
   private boolean isHintEnabled;
 
   public MaterialSpinnerBaseAdapter(Context context) {
@@ -102,11 +103,25 @@ public abstract class MaterialSpinnerBaseAdapter<T> extends BaseAdapter {
       textView = ((ViewHolder) convertView.getTag()).textView;
     }
     textView.setText(getItemText(position));
+    textView.setCompoundDrawablesWithIntrinsicBounds(getItemIcon(position), 0, 0, 0);
+    textView.setCompoundDrawablePadding(popupDrwablePadding);
     return convertView;
   }
 
   public String getItemText(int position) {
+    if(getItem(position) instanceof MaterialSpinner.ItemWithIcon) {
+      MaterialSpinner.ItemWithIcon item = (MaterialSpinner.ItemWithIcon) getItem(position);
+      return item.text;
+    }
     return getItem(position).toString();
+  }
+
+  public int getItemIcon(int position) {
+    if(getItem(position) instanceof MaterialSpinner.ItemWithIcon) {
+      MaterialSpinner.ItemWithIcon item = (MaterialSpinner.ItemWithIcon) getItem(position);
+      return item.iconRes;
+    }
+    return 0;
   }
 
   public int getSelectedIndex() {
@@ -152,6 +167,11 @@ public abstract class MaterialSpinnerBaseAdapter<T> extends BaseAdapter {
     this.popupPaddingTop = top;
     this.popupPaddingRight = right;
     this.popupPaddingBottom = bottom;
+    return this;
+  }
+
+  public MaterialSpinnerBaseAdapter<T> setPopupDrwablePadding(int value) {
+    this.popupDrwablePadding = value;
     return this;
   }
 

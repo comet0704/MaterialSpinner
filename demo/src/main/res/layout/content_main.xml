@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2016 Jared Rummler
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,25 +15,36 @@
   ~
   -->
 
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
-  <com.jaredrummler.materialspinner.MaterialSpinner
-      android:id="@+id/spinner"
-      app:ms_dropdown_max_height="350dp"
-      app:ms_dropdown_height="wrap_content"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"/>
+    <com.jaredrummler.materialspinner.MaterialSpinner
+        android:id="@+id/spinnerOnlyText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:ms_hint="General Spinner"
+        app:ms_dropdown_height="wrap_content"
+        app:ms_dropdown_max_height="350dp" />
 
-</RelativeLayout>
+    <com.jaredrummler.materialspinner.MaterialSpinner
+        android:id="@+id/spinnerWithIcon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        app:ms_popup_drawable_padding="20dp"
+        app:ms_hint="Spinner With Icons"
+        app:ms_dropdown_height="wrap_content"
+        app:ms_dropdown_max_height="350dp" />
+
+</LinearLayout>

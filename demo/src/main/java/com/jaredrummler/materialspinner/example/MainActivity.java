@@ -22,8 +22,10 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.jaredrummler.materialspinner.MaterialSpinner;
@@ -46,6 +48,11 @@ public class MainActivity extends AppCompatActivity {
       "Oreo"
   };
 
+  private static final MaterialSpinner.ItemWithIcon[] LEVELS = {
+          new MaterialSpinner.ItemWithIcon("Advanced", R.drawable.ic_level_advanced),
+          new MaterialSpinner.ItemWithIcon("Intermediate", R.drawable.ic_level_intermediate),
+  };
+
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
@@ -57,21 +64,36 @@ public class MainActivity extends AppCompatActivity {
 
       @Override public void onClick(View view) {
         try {
-          startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/jaredrummler/MaterialSpinner")));
+          startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/comet0704/MaterialSpinner")));
         } catch (ActivityNotFoundException ignored) {
         }
       }
     });
 
-    MaterialSpinner spinner = (MaterialSpinner) findViewById(R.id.spinner);
-    spinner.setItems(ANDROID_VERSIONS);
-    spinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
+    MaterialSpinner spinnerOnlyText = (MaterialSpinner) findViewById(R.id.spinnerOnlyText);
+    spinnerOnlyText.setItemsWithIcon(ANDROID_VERSIONS);
+    spinnerOnlyText.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
 
       @Override public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
         Snackbar.make(view, "Clicked " + item, Snackbar.LENGTH_LONG).show();
       }
     });
-    spinner.setOnNothingSelectedListener(new MaterialSpinner.OnNothingSelectedListener() {
+    spinnerOnlyText.setOnNothingSelectedListener(new MaterialSpinner.OnNothingSelectedListener() {
+
+      @Override public void onNothingSelected(MaterialSpinner spinner) {
+        Snackbar.make(spinner, "Nothing selected", Snackbar.LENGTH_LONG).show();
+      }
+    });
+
+    MaterialSpinner spinerWithIcons = (MaterialSpinner) findViewById(R.id.spinnerWithIcon);
+    spinerWithIcons.setItemsWithIcon(LEVELS);
+    spinerWithIcons.setOnItemWithIconSelectedListener(new MaterialSpinner.OnItemSelectedListener<MaterialSpinner.ItemWithIcon>() {
+
+      @Override public void onItemSelected(MaterialSpinner view, int position, long id, MaterialSpinner.ItemWithIcon item) {
+        Snackbar.make(view, "Clicked " + item.text, Snackbar.LENGTH_LONG).show();
+      }
+    });
+    spinerWithIcons.setOnNothingSelectedListener(new MaterialSpinner.OnNothingSelectedListener() {
 
       @Override public void onNothingSelected(MaterialSpinner spinner) {
         Snackbar.make(spinner, "Nothing selected", Snackbar.LENGTH_LONG).show();

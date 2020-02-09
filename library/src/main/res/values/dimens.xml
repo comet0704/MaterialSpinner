@@ -22,4 +22,5 @@
   <dimen name="ms__item_height">48dp</dimen>
   <dimen name="ms__popup_padding_left">24dp</dimen>
   <dimen name="ms__popup_padding_top">12dp</dimen>
+  <dimen name="ms__popup_drwable_padding">10dp</dimen>
 </resources>
