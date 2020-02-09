@@ -15,7 +15,7 @@
  *
  */
 
-package com.jaredrummler.materialspinner;
+package com.comet0704.materialspinner;
 
 import android.animation.ObjectAnimator;
 import android.app.Activity;

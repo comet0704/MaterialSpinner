@@ -29,7 +29,7 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <com.jaredrummler.materialspinner.MaterialSpinner
+    <com.comet0704.materialspinner.MaterialSpinner
         android:id="@+id/spinnerOnlyText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
         app:ms_dropdown_height="wrap_content"
         app:ms_dropdown_max_height="350dp" />
 
-    <com.jaredrummler.materialspinner.MaterialSpinner
+    <com.comet0704.materialspinner.MaterialSpinner
         android:id="@+id/spinnerWithIcon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

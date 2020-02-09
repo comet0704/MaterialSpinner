@@ -15,7 +15,7 @@
  *
  */
 
-package com.jaredrummler.materialspinner.example;
+package com.comet0704.materialspinner.example;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -28,7 +28,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-import com.jaredrummler.materialspinner.MaterialSpinner;
+import com.comet0704.materialspinner.MaterialSpinner;
 
 public class MainActivity extends AppCompatActivity {
 
